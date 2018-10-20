@@ -1,0 +1,14 @@
+version: "3"
+services:
+  mssql17:
+    image: "microsoft/mssql-server-linux"
+    ports: 
+      - 1403:1433
+      - 1404:1433
+    volumes: 
+      - ./scripts/:/etc/init-scripts/
+    working_dir: /etc/init-scripts/
+    command: sh -c ' chmod +x /etc/init-scripts/entrypoint.sh; /etc/init-scripts/entrypoint.sh & /opt/mssql/bin/sqlservr;'
+    environment:
+      SA_PASSWORD: "Your_password123"
+      ACCEPT_EULA: "Y"
