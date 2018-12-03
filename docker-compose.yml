@@ -4,7 +4,7 @@ services:
     image: "microsoft/mssql-server-linux"
     ports: 
       - 1403:1433
-      - 1404:1433
+      - 1404:1434
     volumes: 
       - ./scripts/:/etc/init-scripts/
     working_dir: /etc/init-scripts/
